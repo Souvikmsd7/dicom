@@ -1,0 +1,62 @@
+# ============================================================================
+# DocMed EHR — DICOM Integration POC
+# Docker Compose — Orthanc DICOM Server + OHIF Viewer
+# ============================================================================
+
+services:
+  # --------------------------------------------------------------------------
+  # Orthanc DICOM Server with DICOMweb
+  # --------------------------------------------------------------------------
+  orthanc:
+    image: orthancteam/orthanc:latest
+    container_name: docmed-orthanc
+    ports:
+      - "${ORTHANC_HTTP_PORT:-8042}:8042"
+      # DICOM C-STORE / C-ECHO SCP Port for physical modalities & workstations
+      - "${ORTHANC_DICOM_PORT:-4242}:4242"
+    volumes:
+      - orthanc-storage:/var/lib/orthanc/db
+      - ./orthanc/orthanc.json:/etc/orthanc/orthanc.json:ro
+    environment:
+      - ORTHANC_USERNAME=${ORTHANC_USERNAME:-orthanc}
+      - ORTHANC_PASSWORD=${ORTHANC_PASSWORD:-orthanc}
+      - ORTHANC__REGISTERED_USERS={"${ORTHANC_USERNAME:-orthanc}":"${ORTHANC_PASSWORD:-orthanc}"}
+      - ORTHANC__AUTHENTICATION_ENABLED=true
+      - ORTHANC__DICOM_WEB__ENABLE=true
+      - VERBOSE_ENABLED=true
+      - VERBOSE_STARTUP=true
+    healthcheck:
+      test: ["CMD", "/usr/bin/python3", "-c", "import urllib.request, base64, os; u = os.environ.get('ORTHANC_USERNAME', 'orthanc'); p = os.environ.get('ORTHANC_PASSWORD', 'orthanc'); req = urllib.request.Request('http://localhost:8042/system'); req.add_header('Authorization', 'Basic ' + base64.b64encode(f'{u}:{p}'.encode()).decode()); urllib.request.urlopen(req)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - docmed-net
+
+  # --------------------------------------------------------------------------
+  # OHIF Viewer
+  # --------------------------------------------------------------------------
+  ohif:
+    image: ohif/app:latest
+    container_name: docmed-ohif
+    ports:
+      - "${OHIF_PORT:-3001}:80"
+    volumes:
+      - ./ohif/ohif-config.js:/usr/share/nginx/html/app-config.js:ro
+      - ./ohif/nginx.conf:/usr/src/default.conf.template:ro
+    depends_on:
+      orthanc:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - docmed-net
+
+volumes:
+  orthanc-storage:
+    driver: local
+
+networks:
+  docmed-net:
+    driver: bridge

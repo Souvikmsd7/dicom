@@ -1,0 +1,77 @@
+{
+  "Name": "DocMed-Orthanc-POC",
+  "RemoteAccessAllowed": true,
+  "AuthenticationEnabled": true,
+  "RegisteredUsers": {
+    "${ORTHANC_USERNAME}": "${ORTHANC_PASSWORD}"
+  },
+  "DicomPort": 4242,
+  "HttpPort": 8042,
+  "StorageDirectory": "/var/lib/orthanc/db",
+  "IndexDirectory": "/var/lib/orthanc/db",
+  "DicomWeb": {
+    "Enable": true,
+    "Root": "/dicom-web/",
+    "EnableWado": true,
+    "WadoRoot": "/wado",
+    "Ssl": false,
+    "StudiesMetadata": "Full",
+    "SeriesMetadata": "Full"
+  },
+  "OrthancExplorer2": {
+    "Enable": true,
+    "IsDefaultUI": true
+  },
+  "HttpsCACertificates": "/etc/ssl/certs/ca-certificates.crt",
+  "DicomAet": "DOCMED",
+  "DicomCheckCalledAet": false,
+  "DicomAlwaysAllowEcho": true,
+  "DicomAlwaysAllowStore": true,
+  "DicomModalities": {
+    "CIRRUS_OCT": {
+      "AET": "CIRRUS_OCT",
+      "Host": "192.168.1.101",
+      "Port": 104,
+      "Manufacturer": "Generic"
+    },
+    "SPECTRALIS": {
+      "AET": "SPECTRALIS_OCT",
+      "Host": "192.168.1.102",
+      "Port": 104,
+      "Manufacturer": "Generic"
+    },
+    "CLARUS_500": {
+      "AET": "CLARUS_CAM",
+      "Host": "192.168.1.103",
+      "Port": 104,
+      "Manufacturer": "Generic"
+    },
+    "TOPCON_TRC": {
+      "AET": "TOPCON_NW400",
+      "Host": "192.168.1.104",
+      "Port": 104,
+      "Manufacturer": "Generic"
+    },
+    "OPTOS_UWF": {
+      "AET": "OPTOS_CALIF",
+      "Host": "192.168.1.105",
+      "Port": 104,
+      "Manufacturer": "Generic"
+    },
+    "HFA_VISUALFIELD": {
+      "AET": "HFA3_VF",
+      "Host": "192.168.1.106",
+      "Port": 104,
+      "Manufacturer": "Generic"
+    }
+  },
+  "StableAge": 10,
+  "KeepAlive": true,
+  "StorageCompression": false,
+  "MaximumStorageSize": 0,
+  "MaximumPatientCount": 0,
+  "LimitFindResults": 100,
+  "LimitFindInstances": 100,
+  "LogExportedResources": true,
+  "OverwriteInstances": true
+}

@@ -1,0 +1,1359 @@
+{
+  "document_metadata": {
+    "title": "DocMed EHR Ophthalmology Device Data JSON Examples",
+    "version": "1.0.0",
+    "created_date": "2026-10-27",
+    "purpose": "Integration planning and API contract design",
+    "data_status": "Synthetic examples; not real patient data",
+    "notes": [
+      "Null means unavailable, not exported, or not yet parsed in this example.",
+      "Field availability depends on exact device model, software version, DICOM conformance statement, and export workflow.",
+      "DICOM images, metadata, Structured Reports, Encapsulated PDF reports, and vendor-specific files are distinct payloads.",
+      "Do not treat example values as clinically valid measurements."
+    ]
+  },
+  "dicom_instance_reference_schema": {
+    "sop_class_uid": null,
+    "sop_instance_uid": null,
+    "series_instance_uid": null,
+    "instance_number": null,
+    "modality": null,
+    "mime_type": null,
+    "transfer_syntax_uid": null,
+    "rows": null,
+    "columns": null,
+    "number_of_frames": null,
+    "photometric_interpretation": null,
+    "bits_allocated": null,
+    "laterality": null,
+    "content_datetime": null,
+    "orthanc_instance_id": null,
+    "wado_rs_url": null,
+    "thumbnail_url": null,
+    "is_original": null,
+    "is_derived": null
+  },
+  "devices": [
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "OCT",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Macular Cube OD",
+            "modality": "OCT",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "OCT / OCT Angiography",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Macular OCT",
+          "laterality": "OD",
+          "acquisition_datetime": "2026-10-27T10:30:00+05:30",
+          "scan_pattern": null,
+          "signal_strength": null,
+          "image_quality_score": null,
+          "fixation_quality": null,
+          "operator_id": null
+        },
+        "scan_parameters": {
+          "scan_width_mm": null,
+          "scan_height_mm": null,
+          "scan_depth_mm": null,
+          "number_of_b_scans": null,
+          "a_scans_per_b_scan": null,
+          "scan_spacing_um": null,
+          "field_of_view_degrees": null,
+          "averaging_frames": null,
+          "segmentation_algorithm_version": null
+        },
+        "retinal_measurements": {
+          "central_subfield_thickness_um": null,
+          "central_point_thickness_um": null,
+          "average_retinal_thickness_um": null,
+          "macular_volume_mm3": null,
+          "rnfl_global_um": null,
+          "rnfl_superior_um": null,
+          "rnfl_inferior_um": null,
+          "rnfl_nasal_um": null,
+          "rnfl_temporal_um": null,
+          "ganglion_cell_complex_um": null,
+          "optic_disc_area_mm2": null,
+          "rim_area_mm2": null,
+          "cup_disc_ratio_vertical": null,
+          "cup_disc_ratio_horizontal": null,
+          "cup_volume_mm3": null,
+          "retinal_layer_thicknesses": [],
+          "quadrant_thicknesses": [],
+          "sector_thicknesses": []
+        },
+        "octa_measurements": {
+          "scan_type": null,
+          "superficial_vessel_density_percent": null,
+          "deep_vessel_density_percent": null,
+          "perfusion_density_percent": null,
+          "foveal_avascular_zone_area_mm2": null,
+          "foveal_avascular_zone_perimeter_mm": null,
+          "vessel_density_by_sector": []
+        },
+        "findings": {
+          "intraretinal_fluid": null,
+          "subretinal_fluid": null,
+          "pigment_epithelial_detachment": null,
+          "drusen": null,
+          "epiretinal_membrane": null,
+          "macular_hole": null,
+          "vitreomacular_traction": null,
+          "rnfl_defect": null,
+          "automated_flags": [],
+          "clinician_annotations": []
+        },
+        "images": {
+          "b_scan_images": [],
+          "en_face_images": [],
+          "thickness_maps": [],
+          "fundus_reference_images": [],
+          "segmentation_overlays": [],
+          "octa_flow_images": []
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "OP",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Color Fundus OD",
+            "modality": "OP",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Fundus Camera / Retinal Photography",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Color Fundus Photography",
+          "laterality": "OD",
+          "acquisition_datetime": "2026-10-27T10:40:00+05:30",
+          "dilation_status": null,
+          "pupil_diameter_mm": null,
+          "field_of_view_degrees": null,
+          "image_quality": null,
+          "operator_id": null
+        },
+        "photography": {
+          "image_type": "COLOR_FUNDUS",
+          "view_position": null,
+          "optic_disc_centered": null,
+          "macula_centered": null,
+          "stereo_pair": null,
+          "number_of_images": null
+        },
+        "findings": {
+          "optic_disc": null,
+          "cup_disc_ratio_vertical": null,
+          "cup_disc_ratio_horizontal": null,
+          "macula": null,
+          "retinal_vessels": null,
+          "hemorrhages": null,
+          "exudates": null,
+          "drusen": null,
+          "pigment_changes": null,
+          "lesions": [],
+          "automated_analysis_results": [],
+          "clinician_annotations": []
+        },
+        "images": {
+          "color_fundus_images": [],
+          "red_free_images": [],
+          "autofluorescence_images": [],
+          "angiography_images": [],
+          "stereo_images": [],
+          "annotated_images": []
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "SR",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Objective Refraction OD",
+            "modality": "SR",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Autorefractor / Keratometer",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Objective Refraction and Keratometry",
+          "laterality": "OD",
+          "acquisition_datetime": "2026-10-27T10:45:00+05:30",
+          "measurement_mode": null,
+          "measurement_quality": null,
+          "number_of_readings": null,
+          "pupil_diameter_mm": null,
+          "operator_id": null
+        },
+        "refraction": {
+          "sphere_d": null,
+          "cylinder_d": null,
+          "axis_degrees": null,
+          "spherical_equivalent_d": null,
+          "vertex_distance_mm": null,
+          "confidence": null,
+          "readings": [],
+          "averaged_result": null
+        },
+        "keratometry": {
+          "k1_diopters": null,
+          "k1_axis_degrees": null,
+          "k2_diopters": null,
+          "k2_axis_degrees": null,
+          "mean_k_diopters": null,
+          "corneal_cylinder_d": null,
+          "corneal_cylinder_axis_degrees": null,
+          "flat_meridian_radius_mm": null,
+          "steep_meridian_radius_mm": null,
+          "readings": []
+        },
+        "additional_measurements": {
+          "near_refraction": null,
+          "pupil_size_mm": null,
+          "interpupillary_distance_mm": null
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "OP",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Visual Field OD",
+            "modality": "OP",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Automated Visual Field Analyzer / Perimetry",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Automated Visual Field",
+          "laterality": "OD",
+          "test_strategy": null,
+          "test_pattern": null,
+          "stimulus_size": null,
+          "stimulus_color": null,
+          "background_luminance": null,
+          "test_duration_seconds": null,
+          "fixation_monitoring_method": null
+        },
+        "reliability_indices": {
+          "fixation_losses_count": null,
+          "fixation_losses_percent": null,
+          "false_positive_percent": null,
+          "false_negative_percent": null,
+          "gaze_tracking_summary": null,
+          "reliability_flags": []
+        },
+        "global_indices": {
+          "mean_deviation_db": null,
+          "pattern_standard_deviation_db": null,
+          "visual_field_index_percent": null,
+          "short_term_fluctuation_db": null,
+          "corrected_pattern_standard_deviation_db": null,
+          "glaucoma_hemifield_test": null
+        },
+        "pointwise_data": {
+          "thresholds_db": [],
+          "total_deviation_db": [],
+          "pattern_deviation_db": [],
+          "probability_maps": [],
+          "test_point_coordinates": []
+        },
+        "findings": {
+          "defect_pattern": null,
+          "central_defect": null,
+          "arcuate_defect": null,
+          "nasal_step": null,
+          "hemifield_asymmetry": null,
+          "automated_interpretation": null,
+          "clinician_interpretation": null
+        },
+        "reports_and_images": {
+          "threshold_plot": null,
+          "total_deviation_plot": null,
+          "pattern_deviation_plot": null,
+          "grayscale_plot": null,
+          "trend_analysis": null,
+          "printable_report": null
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "OP",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Corneal Maps OD",
+            "modality": "OP",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Corneal Topographer / Tomographer",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Corneal Topography or Tomography",
+          "laterality": "OD",
+          "acquisition_datetime": "2026-10-27T11:00:00+05:30",
+          "scan_quality": null,
+          "tear_film_quality": null,
+          "number_of_scans": null,
+          "operator_id": null
+        },
+        "keratometry": {
+          "sim_k_flat_d": null,
+          "sim_k_flat_axis_degrees": null,
+          "sim_k_steep_d": null,
+          "sim_k_steep_axis_degrees": null,
+          "sim_k_mean_d": null,
+          "sim_k_cylinder_d": null,
+          "sim_k_cylinder_axis_degrees": null,
+          "maximum_keratometry_d": null
+        },
+        "corneal_shape": {
+          "anterior_curvature_map": null,
+          "posterior_curvature_map": null,
+          "axial_map": null,
+          "tangential_map": null,
+          "elevation_anterior_map": null,
+          "elevation_posterior_map": null,
+          "reference_surface": null,
+          "best_fit_sphere_radius_mm": null,
+          "asphericity_q_value": null
+        },
+        "pachymetry": {
+          "central_corneal_thickness_um": null,
+          "thinnest_point_thickness_um": null,
+          "thinnest_point_location_x_mm": null,
+          "thinnest_point_location_y_mm": null,
+          "pachymetry_map": null,
+          "thickness_progression": []
+        },
+        "tomography": {
+          "anterior_chamber_depth_mm": null,
+          "anterior_chamber_volume_mm3": null,
+          "angle_degrees": null,
+          "white_to_white_mm": null,
+          "lens_thickness_mm": null
+        },
+        "screening_indices": {
+          "ectasia_screening_index": null,
+          "keratoconus_probability": null,
+          "keratoconus_stage": null,
+          "asymmetry_indices": [],
+          "automated_flags": []
+        },
+        "images_and_maps": {
+          "color_maps": [],
+          "elevation_maps": [],
+          "pachymetry_maps": [],
+          "scheimpflug_images": [],
+          "placido_images": [],
+          "annotated_maps": []
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "SR",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Optical Biometry OD",
+            "modality": "SR",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Optical Biometer",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Optical Biometry",
+          "laterality": "OD",
+          "acquisition_datetime": "2026-10-27T11:10:00+05:30",
+          "measurement_quality": null,
+          "signal_to_noise_ratio": null,
+          "number_of_measurements": null
+        },
+        "ocular_biometry": {
+          "axial_length_mm": null,
+          "anterior_chamber_depth_mm": null,
+          "lens_thickness_mm": null,
+          "central_corneal_thickness_um": null,
+          "white_to_white_mm": null,
+          "pupil_diameter_mm": null,
+          "corneal_diameter_mm": null,
+          "vitreous_length_mm": null
+        },
+        "keratometry": {
+          "k1_d": null,
+          "k1_axis_degrees": null,
+          "k2_d": null,
+          "k2_axis_degrees": null,
+          "mean_k_d": null,
+          "total_keratometry": null,
+          "posterior_keratometry": null
+        },
+        "iol_calculation": {
+          "planned_procedure": null,
+          "target_refraction_d": null,
+          "iol_model": null,
+          "iol_power_d": null,
+          "formula": null,
+          "formula_version": null,
+          "predicted_postoperative_refraction_d": null,
+          "constants_used": {},
+          "alternative_calculations": []
+        },
+        "quality": {
+          "quality_flags": [],
+          "repeatability": null,
+          "manual_override": false,
+          "manual_override_reason": null
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "XC",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Anterior Segment Images OD",
+            "modality": "XC",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Slit Lamp / Anterior Segment Imaging",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Slit Lamp Photography",
+          "laterality": "OD",
+          "acquisition_datetime": "2026-10-27T11:20:00+05:30",
+          "illumination_mode": null,
+          "magnification": null,
+          "filter": null,
+          "image_quality": null
+        },
+        "anatomic_views": {
+          "eyelid": [],
+          "conjunctiva": [],
+          "cornea": [],
+          "anterior_chamber": [],
+          "iris": [],
+          "lens": [],
+          "other": []
+        },
+        "findings": {
+          "corneal_opacity": null,
+          "corneal_edema": null,
+          "corneal_staining": null,
+          "conjunctival_injection": null,
+          "anterior_chamber_cells": null,
+          "anterior_chamber_flare": null,
+          "iris_findings": null,
+          "lens_opacity": null,
+          "lesions": [],
+          "clinician_annotations": []
+        },
+        "images": {
+          "white_light_images": [],
+          "fluorescein_images": [],
+          "retroillumination_images": [],
+          "external_eye_images": [],
+          "annotated_images": []
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "SR",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Lensometry",
+            "modality": "SR",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Lensometer / Lensmeter",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Lensometry",
+          "measurement_datetime": "2026-10-27T11:30:00+05:30",
+          "lens_position": null,
+          "lens_type": null,
+          "measurement_quality": null
+        },
+        "right_lens": {
+          "sphere_d": null,
+          "cylinder_d": null,
+          "axis_degrees": null,
+          "addition_d": null,
+          "prism_horizontal_delta": null,
+          "prism_horizontal_base": null,
+          "prism_vertical_delta": null,
+          "prism_vertical_base": null,
+          "segment_height_mm": null,
+          "optical_center_x_mm": null,
+          "optical_center_y_mm": null,
+          "lens_material": null,
+          "lens_design": null
+        },
+        "left_lens": {
+          "sphere_d": null,
+          "cylinder_d": null,
+          "axis_degrees": null,
+          "addition_d": null,
+          "prism_horizontal_delta": null,
+          "prism_horizontal_base": null,
+          "prism_vertical_delta": null,
+          "prism_vertical_base": null,
+          "segment_height_mm": null,
+          "optical_center_x_mm": null,
+          "optical_center_y_mm": null,
+          "lens_material": null,
+          "lens_design": null
+        },
+        "frame_and_order": {
+          "frame_pd_mm": null,
+          "monocular_pd_right_mm": null,
+          "monocular_pd_left_mm": null,
+          "prescription_id": null,
+          "lens_order_id": null,
+          "verification_status": null
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "US",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [
+          {
+            "series_instance_uid": "2.25.223456789012345678901234567890",
+            "series_number": 1,
+            "series_description": "Ocular Ultrasound",
+            "modality": "US",
+            "laterality": "OD",
+            "number_of_instances": null,
+            "image_references": []
+          }
+        ],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Ophthalmic Ultrasound / A-Scan / B-Scan",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Ocular Ultrasound",
+          "laterality": "OD",
+          "acquisition_datetime": "2026-10-27T11:40:00+05:30",
+          "mode": null,
+          "probe_frequency_mhz": null,
+          "gain_db": null,
+          "immersion_or_contact": null
+        },
+        "a_scan_biometry": {
+          "axial_length_mm": null,
+          "anterior_chamber_depth_mm": null,
+          "lens_thickness_mm": null,
+          "vitreous_length_mm": null,
+          "sound_velocity_settings": {},
+          "measurement_trace": [],
+          "quality_flags": []
+        },
+        "b_scan_findings": {
+          "vitreous_opacities": null,
+          "retinal_detachment": null,
+          "choroidal_detachment": null,
+          "vitreous_hemorrhage": null,
+          "mass_or_lesion": null,
+          "optic_nerve_findings": null,
+          "lesion_measurements": [],
+          "clinician_annotations": []
+        },
+        "images": {
+          "b_scan_frames": [],
+          "a_scan_traces": [],
+          "cine_loops": [],
+          "annotated_images": []
+        }
+      },
+      "schema_version": "1.0.1"
+    },
+    {
+      "integration_id": "DICOM-INT-DEMO-0001",
+      "source_system": "DocMed EHR",
+      "patient": {
+        "docmed_patient_id": "PAT-DEMO-1001",
+        "dicom_patient_id": "DEVICE-PAT-1001",
+        "patient_id_mapping_id": "MAP-DEMO-0001",
+        "patient_name": "DEMO^PATIENT",
+        "date_of_birth": "1975-04-12",
+        "sex": "F",
+        "issuer_of_patient_id": null
+      },
+      "encounter": {
+        "encounter_id": "ENC-DEMO-1001",
+        "appointment_id": null,
+        "exam_date": "2026-10-27",
+        "exam_time": "10:30:00",
+        "timezone": "Asia/Kolkata",
+        "ordering_provider_id": null,
+        "performing_provider_id": null,
+        "department": "Ophthalmology",
+        "laterality": "OD"
+      },
+      "device": {
+        "manufacturer": null,
+        "model": null,
+        "software_version": null,
+        "station_name": null,
+        "serial_number": null,
+        "modality": "NON_DICOM_OR_VENDOR",
+        "dicom_conformance_statement_version": null
+      },
+      "study": {
+        "study_instance_uid": "2.25.123456789012345678901234567890",
+        "accession_number": "ACC-DEMO-1001",
+        "study_id": "STUDY-DEMO-1001",
+        "study_date": "2026-10-27",
+        "study_time": "10:30:00",
+        "study_description": null,
+        "requested_procedure_description": null,
+        "series": [],
+        "instances": [],
+        "dicomweb": {
+          "qido_rs_url": null,
+          "wado_rs_url": null,
+          "stow_rs_url": null,
+          "orthanc_study_id": null
+        }
+      },
+      "report": {
+        "report_type": null,
+        "status": "PRELIMINARY",
+        "report_text": null,
+        "impression": null,
+        "recommendations": [],
+        "interpreting_provider_id": null,
+        "signed_at": null
+      },
+      "integration_status": {
+        "metadata_received": true,
+        "images_available": false,
+        "measurements_parsed": false,
+        "report_available": false,
+        "patient_match_status": "PENDING_VERIFICATION",
+        "validation_errors": [],
+        "missing_fields": [],
+        "unsupported_fields": [],
+        "validation_status": "PENDING"
+      },
+      "device_type": "Contact Lens Fitting (usually DocMed form/vendor integration)",
+      "clinical_data": {
+        "exam": {
+          "exam_type": "Contact Lens Fitting",
+          "laterality": "OD",
+          "exam_date": "2026-10-27",
+          "provider_id": null
+        },
+        "ocular_measurements": {
+          "k_flat_d": null,
+          "k_flat_axis_degrees": null,
+          "k_steep_d": null,
+          "k_steep_axis_degrees": null,
+          "corneal_diameter_mm": null,
+          "horizontal_visible_iris_diameter_mm": null,
+          "tear_film_assessment": null,
+          "corneal_condition": null
+        },
+        "soft_contact_lens": {
+          "brand": null,
+          "product_name": null,
+          "material": null,
+          "base_curve_mm": null,
+          "diameter_mm": null,
+          "sphere_d": null,
+          "cylinder_d": null,
+          "axis_degrees": null,
+          "addition": null,
+          "design": null,
+          "wear_schedule": null,
+          "replacement_schedule": null
+        },
+        "rgp_contact_lens": {
+          "brand": null,
+          "product_name": null,
+          "base_curve_mm": null,
+          "overall_diameter_mm": null,
+          "optic_zone_diameter_mm": null,
+          "back_vertex_power_d": null,
+          "material": null,
+          "edge_lift": null,
+          "fit_pattern": null,
+          "fluorescein_pattern": null
+        },
+        "fit_assessment": {
+          "centration": null,
+          "movement_mm": null,
+          "coverage": null,
+          "comfort_score": null,
+          "visual_acuity_with_lens": null,
+          "over_refraction_sphere_d": null,
+          "over_refraction_cylinder_d": null,
+          "over_refraction_axis_degrees": null,
+          "corneal_response": null,
+          "provider_notes": null,
+          "follow_up_date": null
+        }
+      },
+      "schema_version": "1.0.1"
+    }
+  ],
+  "implementation_rules": [
+    "Keep original DICOM files and UIDs; parsed JSON is a companion representation, not a replacement for source objects.",
+    "Store units explicitly and retain source values/coded concepts where practical.",
+    "Record provenance for every parsed measurement: source SOP Instance UID, source sequence/code, parser version, and extraction timestamp.",
+    "Do not generate diagnoses or prescriptions automatically from measurements without clinician review.",
+    "Use server-side patient identity mapping and authorization before exposing images or measurements.",
+    "For large image studies, return DICOMweb/application URLs rather than embedding pixel data as base64 in routine API JSON.",
+    "Verify exact DICOM tags, SOP classes, and supported modalities against each device's conformance statement."
+  ],
+  "contract_rules": [
+    "This is the original device-specific JSON structure, preserved for backward compatibility.",
+    "Do not rename, remove, or relocate existing fields when populating this schema.",
+    "Use null for unavailable scalar values and [] for unavailable repeated items.",
+    "Populate values only when present in the device export or produced by a documented, validated parser.",
+    "List unavailable expected fields in integration_status.missing_fields and unsupported fields in integration_status.unsupported_fields.",
+    "Preserve original DICOM objects and their Study, Series, and SOP Instance UIDs.",
+    "Actual device output depends on manufacturer, model, software version, DICOM conformance, and export configuration."
+  ]
+}

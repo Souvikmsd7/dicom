@@ -1,0 +1,30 @@
+# Environment secrets
+.env
+
+# Node
+node_modules/
+dist/
+build/
+
+# Orthanc persistent data (Docker volumes)
+orthanc-data/
+
+# Sample DICOM files (potentially large)
+sample-data/*.dcm
+sample-data/*.zip
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Logs & Runtime Data
+*.log
+logs/
+backend/data/connection-history.json
+
+# Test coverage
+coverage/

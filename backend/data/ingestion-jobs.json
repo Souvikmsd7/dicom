@@ -1,0 +1,16 @@
+[
+  {
+    "id": "JOB-ERR-1001",
+    "device_id": "OCT-001",
+    "timestamp": "2026-10-27T20:30:26.098Z",
+    "source": "CIRRUS_OCT",
+    "studyInstanceUID": "1.2.826.0.1.3680043.8.498.9999",
+    "patientId": "UNKNOWN_99",
+    "status": "FAILED",
+    "error_code": "UNMAPPED_PATIENT_IDENTITY",
+    "error_message": "Incoming DICOM PatientID \"UNKNOWN_99\" has no mapped EHR patient. Awaiting admin review.",
+    "retryable": true,
+    "retry_count": 0,
+    "payload_summary": "Macular Cube OD (128 instances)"
+  }
+]
