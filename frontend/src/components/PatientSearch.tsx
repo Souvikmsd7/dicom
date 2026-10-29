@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Search, User } from 'lucide-react';
 import type { EhrPatient } from '../types/imaging.types';
+import { Spinner } from './ui/Spinner';
 
 interface PatientSearchProps {
   patients: EhrPatient[];
@@ -55,9 +56,7 @@ export function PatientSearch({
         </div>
 
         {isLoading ? (
-          <div style={{ textAlign: 'center', padding: '1.5rem', color: 'var(--text-tertiary)' }}>
-            Loading patients...
-          </div>
+          <Spinner size="md" label="Loading patients from EHR directory..." />
         ) : filteredPatients.length === 0 ? (
           <div style={{ textAlign: 'center', padding: '1.5rem', color: 'var(--text-tertiary)' }}>
             No patients match "{searchTerm}"

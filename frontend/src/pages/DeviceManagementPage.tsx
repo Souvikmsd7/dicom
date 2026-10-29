@@ -62,8 +62,10 @@ export function DeviceManagementPage() {
   const [showWizard, setShowWizard] = useState(false);
   const [activeHistoryDevice, setActiveHistoryDevice] = useState<DeviceRecord | null>(null);
   const [historyEntries, setHistoryEntries] = useState<ConnectionHistoryEntry[]>([]);
+  const [loadingHistory, setLoadingHistory] = useState(false);
   const [showErrorJobsModal, setShowErrorJobsModal] = useState(false);
   const [errorJobs, setErrorJobs] = useState<IngestionErrorJob[]>([]);
+  const [loadingErrors, setLoadingErrors] = useState(false);
   const [retryingJobId, setRetryingJobId] = useState<string | null>(null);
 
   // Toast notifications
@@ -181,22 +183,28 @@ export function DeviceManagementPage() {
   // Open history modal
   const openHistoryModal = async (device: DeviceRecord) => {
     setActiveHistoryDevice(device);
+    setLoadingHistory(true);
     try {
       const history = await getDeviceHistory(device.device_id);
       setHistoryEntries(history);
     } catch {
       setHistoryEntries([]);
+    } finally {
+      setLoadingHistory(false);
     }
   };
 
   // Open ingestion error jobs modal
   const openErrorJobsModal = async () => {
     setShowErrorJobsModal(true);
+    setLoadingErrors(true);
     try {
       const errs = await getIngestionErrors();
       setErrorJobs(errs);
     } catch {
       setErrorJobs([]);
+    } finally {
+      setLoadingErrors(false);
     }
   };
 
@@ -268,7 +276,7 @@ export function DeviceManagementPage() {
             className="btn btn-outline"
             style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}
           >
-            {scanning ? <Spinner size="sm" /> : <Radio size={16} />}
+            {scanning ? <Spinner inline size="sm" /> : <Radio size={16} />}
             <span>{scanning ? 'Scanning Network...' : 'Discover Devices'}</span>
           </button>
 
@@ -477,10 +485,11 @@ export function DeviceManagementPage() {
 
         <button
           onClick={loadAllData}
+          disabled={loading}
           className="btn btn-outline"
           style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.82rem' }}
         >
-          <RefreshCw size={14} />
+          {loading ? <Spinner inline size="xs" /> : <RefreshCw size={14} />}
           <span>Refresh</span>
         </button>
       </div>
@@ -488,10 +497,7 @@ export function DeviceManagementPage() {
       {/* Main Devices Table */}
       <div className="card" style={{ overflow: 'hidden' }}>
         {loading ? (
-          <div style={{ padding: '3rem', textAlign: 'center' }}>
-            <Spinner size="lg" />
-            <div style={{ marginTop: '0.75rem', color: '#94a3b8' }}>Loading registered devices...</div>
-          </div>
+          <Spinner size="lg" label="Loading registered physical devices from DocMed registry..." />
         ) : devices.length === 0 ? (
           <div style={{ padding: '3rem', textAlign: 'center', color: '#94a3b8' }}>
             <Server size={40} style={{ margin: '0 auto 1rem', opacity: 0.4 }} />
@@ -622,7 +628,7 @@ export function DeviceManagementPage() {
                             className="btn btn-outline"
                             style={{ padding: '0.35rem 0.6rem', fontSize: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
                           >
-                            {isTesting ? <Spinner size="sm" /> : <Zap size={14} color="#eab308" />}
+                            {isTesting ? <Spinner inline size="xs" /> : <Zap size={14} color="#eab308" />}
                             <span>Test</span>
                           </button>
 
@@ -720,7 +726,9 @@ export function DeviceManagementPage() {
             </div>
 
             <div style={{ padding: '1rem', overflowY: 'auto', flex: 1 }}>
-              {historyEntries.length === 0 ? (
+              {loadingHistory ? (
+                <Spinner size="md" label="Loading connection test history..." />
+              ) : historyEntries.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '2rem', color: '#94a3b8' }}>
                   No connection test entries recorded yet. Click "Test" on the device row to perform a live check.
                 </div>
@@ -817,7 +825,9 @@ export function DeviceManagementPage() {
             </div>
 
             <div style={{ padding: '1rem', overflowY: 'auto', flex: 1 }}>
-              {errorJobs.length === 0 ? (
+              {loadingErrors ? (
+                <Spinner size="md" label="Loading quarantined error jobs..." />
+              ) : errorJobs.length === 0 ? (
                 <div style={{ textAlign: 'center', padding: '2rem', color: '#94a3b8' }}>
                   No failed ingestion jobs. All incoming studies processed successfully!
                 </div>
@@ -862,7 +872,7 @@ export function DeviceManagementPage() {
                           className="btn btn-outline"
                           style={{ fontSize: '0.75rem', padding: '0.4rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
                         >
-                          {retryingJobId === j.id ? <Spinner size="sm" /> : <RotateCcw size={14} />}
+                          {retryingJobId === j.id ? <Spinner inline size="xs" /> : <RotateCcw size={14} />}
                           <span>Retry</span>
                         </button>
                       )}

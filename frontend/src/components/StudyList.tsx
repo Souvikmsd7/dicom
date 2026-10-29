@@ -142,7 +142,7 @@ export function StudyList({
             disabled={isLoading}
             title="Refresh QIDO-RS Study Query"
           >
-            <RefreshCw size={13} className={isLoading ? 'spinner-icon' : ''} />
+            {isLoading ? <Spinner inline size="xs" /> : <RefreshCw size={13} />}
             Refresh
           </button>
         </div>

@@ -15,6 +15,7 @@ import {
 import {
   registerDevice,
   testDeviceConnection,
+  API_BASE,
 } from '../services/imaging.service';
 import type { DeviceRecord, DeviceConnectionType } from '../types/imaging.types';
 import { Spinner } from './ui/Spinner';
@@ -147,13 +148,13 @@ export function DeviceConnectionWizard({
       };
 
       // Call backend test
-      const res = await fetch('http://localhost:3000/api/devices/modalities', {
+      const res = await fetch(`${API_BASE}/api/devices/modalities`, {
         headers: { 'Content-Type': 'application/json' },
       });
       
       // If host is 127.0.0.1 or localhost, check local Orthanc
       if (ipAddress === '127.0.0.1' || ipAddress === 'localhost') {
-        const healthRes = await fetch('http://localhost:3000/api/health');
+        const healthRes = await fetch(`${API_BASE}/api/health`);
         const health = await healthRes.json();
         if (health.data?.orthanc?.ready) {
           setTestResult({
@@ -709,7 +710,7 @@ export function DeviceConnectionWizard({
                     className="btn btn-primary"
                     style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', padding: '0.5rem 1rem' }}
                   >
-                    {testing ? <Spinner size="sm" /> : <Zap size={16} />}
+                    {testing ? <Spinner inline size="sm" /> : <Zap size={16} />}
                     <span>{testing ? 'Testing...' : 'Test Connection'}</span>
                   </button>
                 </div>
@@ -890,7 +891,7 @@ export function DeviceConnectionWizard({
                 className="btn btn-primary"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', backgroundColor: '#16a34a' }}
               >
-                {saving ? <Spinner size="sm" /> : <Check size={16} />}
+                {saving ? <Spinner inline size="sm" /> : <Check size={16} />}
                 <span>{saving ? 'Activating...' : 'Save & Activate Device'}</span>
               </button>
             )}

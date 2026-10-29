@@ -15,7 +15,7 @@ import type {
   DeviceConfiguration,
 } from '../types/imaging.types';
 
-const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+export const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3005';
 
 // ---------------------------------------------------------------------------
 // Helpers

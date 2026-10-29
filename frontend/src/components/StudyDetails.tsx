@@ -133,7 +133,7 @@ export function StudyDetails({
             onClick={() => onLaunchViewer(study)}
             disabled={isLaunching}
           >
-            <ExternalLink size={13} />
+            {isLaunching ? <Spinner inline size="xs" /> : <ExternalLink size={13} />}
             Launch OHIF Viewer
           </button>
           <button className="btn btn-ghost btn-sm" onClick={onClose}>
